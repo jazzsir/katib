@@ -11,6 +11,9 @@ data:
     kind: Job
     spec:
       template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: "false"
         spec:
           containers:
             - name: training-container
@@ -29,6 +32,9 @@ data:
     kind: Job
     spec:
       template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: "false"
         spec:
           containers:
             - name: training-container
@@ -45,6 +51,10 @@ data:
     apiVersion: "kubeflow.org/v1"
     kind: PyTorchJob
     spec:
+      template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: "false"
       pytorchReplicaSpecs:
         Master:
           replicas: 1
